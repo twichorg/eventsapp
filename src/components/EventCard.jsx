@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
  
 
@@ -66,7 +67,11 @@ export const EventCard = ({eventer}) => {
   color: #333;
   cursor: pointer;
 `
+  const navigate = useNavigate(); // useNavigate is a hook that we can use to navigate to a new page
 
+  const handleClick = () => { // handleClick is a function that we can call to navigate to a new page
+    navigate('/event',{state: {name: eventer.name}});
+  }
   return (
     <Container>
       <Card>
@@ -78,7 +83,7 @@ export const EventCard = ({eventer}) => {
         <CategoryName>Kategori :{eventer.category.name}</CategoryName>
         <Date>Başlangıç Tarihi :{eventer.start}</Date>
         </Info>
-        <Button>Detaylar</Button>
+        <Button onClick={handleClick}>Detaylar</Button>
       </Card>
     </Container>
   )

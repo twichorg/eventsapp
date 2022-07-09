@@ -13,7 +13,7 @@ const EventList = () => {
   
 // eslint-disable-next-line react-hooks/exhaustive-deps
 const fetchData = async () => {
-  const res = await fetch('https://backend.etkinlik.io/api/v2/events?take=21', options)
+  const res = await fetch('https://backend.etkinlik.io/api/v2/events?take=15', options)
   const data = await res.json()
   setEvents(data.items)
 }
